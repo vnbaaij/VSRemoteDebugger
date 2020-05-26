@@ -23,9 +23,11 @@ steps:
 
 - task: VSBuild@1
   inputs:
+    vsVersion: latest
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    msbuildArgs: "/p:OutDir=$(Build.ArtifactStagingDirectory)"
 
 - task: VSTest@2
   inputs:
