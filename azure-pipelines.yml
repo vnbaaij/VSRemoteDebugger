@@ -39,3 +39,12 @@ steps:
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'vsix'
+
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'radutomy'
+    repositoryName: 'radutomy/VSRemoteDebugger'
+    action: create
+    target: '$(Build.SourceVersion)'
+    tagSource: userSpecifiedTag
+    tag: '1436'
